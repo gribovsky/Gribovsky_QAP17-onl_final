@@ -256,21 +256,14 @@ def test_upload_image():
 
     post_response = requests.post(
         url=f"{URL}pet/{pet_id}/uploadImage",
-        headers={"accept": "application/json",
-                 "Content-Type": "multipart/form-data"},
-        files={"file": "D:/photo_cat.jpg",
-               "additionalMetadata": ""}
+        headers={"accept": "application/json"},
+        files={"file": open("photo_cat.jpg", "rb")}
 
     )
 
     assert post_response.status_code == 200
 
-    get_response = requests.get(
-        url=f"{URL}pet/{pet_id}",
-        headers={"accept": "application/json"}
-    )
 
-    print(get_response.json())
 
 
 """

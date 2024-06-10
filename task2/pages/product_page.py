@@ -22,16 +22,14 @@ class ProductPage(BasePage):
 
     def click_first(self):
         action = ActionChains(self.driver)
-        action.move_to_element(self.select_first).perform()
+        action.scroll_to_element(self.select_first).perform()
         action.click().perform()
 
     def check_select_first_clicked(self):
         self.wait_for(LINK_FIRST).is_selected()
-
 
     def add_to_cart(self):
         self.click(BN_ADD_TO_CART)
 
     def go_to_cart(self):
         self.click(BN_GO_TO_CART)
-
